@@ -31,4 +31,10 @@ public class OutputView {
                 || computerNum[1] != playerNum[1]
                 || computerNum[2] != playerNum[2];
     }
+
+    public boolean isRestart() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        return !EXIT.equals(Console.readLine());
+    }
 }
