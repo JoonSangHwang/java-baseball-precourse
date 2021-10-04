@@ -22,4 +22,13 @@ public class OutputView {
         if (ballCnt != 0) System.out.print(ballCnt + "볼");
         System.out.println();
     }
+
+    public boolean isFinish(Computer computer, Player player) {
+        int[] computerNum = computer.getNum();
+        int[] playerNum = player.getNum();
+
+        return computerNum[0] != playerNum[0]
+                || computerNum[1] != playerNum[1]
+                || computerNum[2] != playerNum[2];
+    }
 }
