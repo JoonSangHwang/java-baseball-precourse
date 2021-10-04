@@ -29,4 +29,32 @@ public class Computer {
     public int[] getNum() {
         return this.num;
     }
+
+    public int numberOfStrike(Player player) {
+        int[] playerNum = player.getNum();
+        int strikeCnt = 0;
+        if (num[0] == playerNum[0]) strikeCnt++;
+        if (num[1] == playerNum[1]) strikeCnt++;
+        if (num[2] == playerNum[2]) strikeCnt++;
+
+        return strikeCnt;
+    }
+
+    public int numberOfBall(Player player) {
+        int[] playerNum = player.getNum();
+        int ballCnt = 0;
+        int idx = -1;
+        while (idx++ < 2)
+            ballCnt += checkBall(idx, playerNum);
+        return ballCnt;
+    }
+
+    private int checkBall(int idx, int[] playerNum) {
+        int ballcnt = 0;
+
+        if (num[idx] == playerNum[(idx + 1) % 3] || num[idx] == playerNum[(idx + 2) % 3])
+            ballcnt++;
+
+        return ballcnt;
+    }
 }
